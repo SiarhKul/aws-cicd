@@ -24,6 +24,7 @@ export class CdkCicdStack extends cdk.Stack {
         input: CodePipelineSource.gitHub('SiarhKul/aws-cicd', 'main'),
         commands: [
           'npm ci',
+          'ls -al cdk.out',
           'npx cdk synth',
           'ls -al',  // List all files in the current directory
           'ls -al cdk.out'  // List all files in the cdk.out directory
