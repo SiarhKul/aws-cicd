@@ -17,7 +17,7 @@ export class CdkCicdStack extends cdk.Stack {
         commands: [
           'ls',
           'npm ci',
-          'echo "--------------------------"',
+          'echo "--------------"',
           'npx cdk synth',
           'ls -al',  // List all files in the current directory
           'ls -al cdk.out'  // List all files in the cdk.out directory
