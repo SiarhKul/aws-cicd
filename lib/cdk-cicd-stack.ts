@@ -11,17 +11,16 @@ export class CdkCicdStack extends cdk.Stack {
       .gitHub('SiarhKul/aws-cicd', 'main');
 
     new CodePipeline(this, 'AwesomePipeline', {
-      publishAssetsInParallel: false,
       pipelineName: 'AwesomePipeline',
       synth: new ShellStep('Synth', {
         input: source,
         commands: [
+          'ls',
           'npm ci',
           'echo "--------------------------"',
-          'ls',
-          // 'npx cdk synth',
-          // 'ls -al',  // List all files in the current directory
-          // 'ls -al cdk.out'  // List all files in the cdk.out directory
+          'npx cdk synth',
+          'ls -al',  // List all files in the current directory
+          'ls -al cdk.out'  // List all files in the cdk.out directory
         ],
         primaryOutputDirectory: 'cdk.out'
       })
